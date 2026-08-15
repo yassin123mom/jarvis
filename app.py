@@ -1,11 +1,15 @@
 import streamlit as st
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
 
 st.set_page_config(page_title="Jarvis", page_icon="🤖")
 st.title("🤖 Jarvis")
+load_dotenv()
 
-client = OpenAI(api_key=os.environ.get("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"))
+api_key = os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key)
 
 with st.sidebar:
     st.write("💬 GPT-3.5 Turbo")
